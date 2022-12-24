@@ -81,6 +81,10 @@
                     <a class="nav-link active" aria-current="page" href="/cliente">Clientes</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/telefone">Telefones</a>
+                </li>
+
             </ul>
         </div>
     </div>

@@ -47,3 +47,10 @@ Route::get('/cliente', [\App\Http\Controllers\ClienteController::class, 'index']
 Route::get('/cliente/{id}/deletar', [\App\Http\Controllers\ClienteController::class, 'destroy']);
 
 // endregion
+
+// region Telefone
+
+Route::get('/telefone', [\App\Http\Controllers\TelefoneController::class, 'index']);
+Route::get('/telefone/{id}/deletar', [\App\Http\Controllers\TelefoneController::class, 'destroy']);
+
+// endregion
