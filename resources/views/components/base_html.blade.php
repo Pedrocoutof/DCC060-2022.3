@@ -99,7 +99,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/trabalha_em">Trabalha_em</a>
+                    <a class="nav-link active" aria-current="page" href="/usuario">Usuarios</a>
                 </li>
 
             </ul>

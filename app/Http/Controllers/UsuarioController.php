@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use App\Http\Requests\StoreUsuarioRequest;
 use App\Http\Requests\UpdateUsuarioRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
@@ -13,9 +15,22 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $search = $request['inputSearch'] ?? "";
+
+        if($search)
+        {
+            $query = DB::select('SELECT * FROM usuarios
+                                        WHERE email LIKE "%'.$search.'%"');
+        }
+        else{
+            $query = DB::select('SELECT * FROM usuarios');
+        }
+
+        return view('usuario.index')->with([
+            "arrObj" => $query
+        ]);
     }
 
     /**
@@ -79,8 +94,10 @@ class UsuarioController extends Controller
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        DB::select('DELETE FROM usuarios WHERE id_usuario = '. $id);
+        return redirect("usuario");
     }
 }

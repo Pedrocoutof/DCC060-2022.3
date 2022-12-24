@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transportadora;
 use App\Http\Requests\StoreTransportadoraRequest;
 use App\Http\Requests\UpdateTransportadoraRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class TransportadoraController extends Controller
@@ -93,8 +94,10 @@ class TransportadoraController extends Controller
      * @param  \App\Models\Transportadora  $transportadora
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transportadora $transportadora)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        DB::select('DELETE FROM transportadoras WHERE id_transportadora = '. $id);
+        return redirect("transportadora");
     }
 }
