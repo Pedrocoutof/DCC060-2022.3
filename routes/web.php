@@ -61,3 +61,10 @@ Route::get('/endereco', [\App\Http\Controllers\EnderecoController::class, 'index
 Route::get('/endereco/{id}/deletar', [\App\Http\Controllers\EnderecoController::class, 'destroy']);
 
 // endregion
+
+// region Entregador
+
+Route::get('/entregador', [\App\Http\Controllers\EntregadorController::class, 'index']);
+Route::get('/entregador/{id}/deletar', [\App\Http\Controllers\EntregadorController::class, 'destroy']);
+
+// endregion
