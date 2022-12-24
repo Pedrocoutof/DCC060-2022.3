@@ -54,3 +54,10 @@ Route::get('/telefone', [\App\Http\Controllers\TelefoneController::class, 'index
 Route::get('/telefone/{id}/deletar', [\App\Http\Controllers\TelefoneController::class, 'destroy']);
 
 // endregion
+
+// region Endereço
+
+Route::get('/endereco', [\App\Http\Controllers\EnderecoController::class, 'index']);
+Route::get('/endereco/{id}/deletar', [\App\Http\Controllers\EnderecoController::class, 'destroy']);
+
+// endregion
