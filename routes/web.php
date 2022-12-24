@@ -80,3 +80,17 @@ Route::get('/usuario', [\App\Http\Controllers\UsuarioController::class, 'index']
 Route::get('/usuario/{id}/deletar', [\App\Http\Controllers\UsuarioController::class, 'destroy']);
 
 // endregion
+
+// region Vendas
+
+Route::get('/venda', [\App\Http\Controllers\VendaController::class, 'index']);
+Route::get('/venda/{id}/deletar', [\App\Http\Controllers\VendaController::class, 'destroy']);
+
+// endregion
+
+// region Entregas
+
+Route::get('/entrega', [\App\Http\Controllers\EntregaController::class, 'index']);
+Route::get('/entrega/{id}/deletar', [\App\Http\Controllers\EntregaController::class, 'destroy']);
+
+// endregion

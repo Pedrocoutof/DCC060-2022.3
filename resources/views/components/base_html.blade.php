@@ -102,6 +102,14 @@
                     <a class="nav-link active" aria-current="page" href="/usuario">Usuarios</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/venda">Vendas</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/entrega">Entregas</a>
+                </li>
+
             </ul>
         </div>
     </div>
