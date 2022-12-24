@@ -26,3 +26,10 @@ Route::get('/produto', [\App\Http\Controllers\ProdutoController::class, 'index']
 Route::get('/produto/{id}/deletar', [\App\Http\Controllers\ProdutoController::class, 'destroy']);
 
 // endregion
+
+// region Compra
+
+Route::get('/compra', [\App\Http\Controllers\CompraController::class, 'index']);
+Route::get('/compra/{id}/deletar', [\App\Http\Controllers\CompraController::class, 'destroy']);
+
+// endregion
