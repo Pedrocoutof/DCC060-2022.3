@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index', [
+        "request" => "",
+        "response" => ""
+    ]);
 });
+
+// region Produtos
+
+Route::get('/produto', [\App\Http\Controllers\ProdutoController::class, 'index']);
+Route::get('/produto/{id}/deletar', [\App\Http\Controllers\ProdutoController::class, 'destroy']);
+
+// endregion
