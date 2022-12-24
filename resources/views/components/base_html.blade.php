@@ -77,6 +77,10 @@
                     <a class="nav-link active" aria-current="page" href="/parcela-compra">Parcela compra</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/cliente">Clientes</a>
+                </li>
+
             </ul>
         </div>
     </div>

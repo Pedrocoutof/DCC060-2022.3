@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Compra;
-use App\Http\Requests\StoreCompraRequest;
-use App\Http\Requests\UpdateCompraRequest;
+use App\Models\Cliente;
+use App\Http\Requests\StoreClienteRequest;
+use App\Http\Requests\UpdateClienteRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CompraController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,14 @@ class CompraController extends Controller
 
         if($search)
         {
-            $query = DB::select('SELECT * FROM compras
-                                        WHERE nome LIKE "'.$search.'%"');
+            $query = DB::select('SELECT * FROM clientes
+                                        WHERE nome_completo LIKE "%'.$search.'%"');
         }
         else{
-            $query = DB::select('SELECT * FROM compras');
+            $query = DB::select('SELECT * FROM clientes');
         }
 
-        return view('compra.index')->with([
+        return view('cliente.index')->with([
             "arrObj" => $query
         ]);
     }
@@ -46,10 +46,10 @@ class CompraController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCompraRequest  $request
+     * @param  \App\Http\Requests\StoreClienteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCompraRequest $request)
+    public function store(StoreClienteRequest $request)
     {
         //
     }
@@ -57,10 +57,10 @@ class CompraController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Compra  $compra
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(Compra $compra)
+    public function show(Cliente $cliente)
     {
         //
     }
@@ -68,10 +68,10 @@ class CompraController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Compra  $compra
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Compra $compra)
+    public function edit(Cliente $cliente)
     {
         //
     }
@@ -79,11 +79,11 @@ class CompraController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCompraRequest  $request
-     * @param  \App\Models\Compra  $compra
+     * @param  \App\Http\Requests\UpdateClienteRequest  $request
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompraRequest $request, Compra $compra)
+    public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
         //
     }
@@ -91,13 +91,13 @@ class CompraController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Compra  $compra
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
         $id = $request->id;
-        DB::select('DELETE FROM compras WHERE id_compra = '. $id);
-        return redirect("compra");
+        DB::select('DELETE FROM compras WHERE id_cliente = '. $id);
+        return redirect("cliente");
     }
 }

@@ -40,3 +40,10 @@ Route::get('/parcela-compra', [\App\Http\Controllers\ParcelaCompraController::cl
 Route::get('/parcela-compra/{id}/deletar', [\App\Http\Controllers\ParcelaCompraController::class, 'destroy']);
 
 // endregion
+
+// region Clientes
+
+Route::get('/cliente', [\App\Http\Controllers\ClienteController::class, 'index']);
+Route::get('/cliente/{id}/deletar', [\App\Http\Controllers\ClienteController::class, 'destroy']);
+
+// endregion
