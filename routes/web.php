@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\IndexPageController::class, 'index']);
+Route::get('/carga', [\App\Http\Controllers\IndexPageController::class, 'makeCharge']);
+Route::get('/createTables', [\App\Http\Controllers\IndexPageController::class, 'createTables']);
+Route::get('/dropAllTables', [\App\Http\Controllers\IndexPageController::class, 'dropAllTables']);
 
 // region Produtos
 

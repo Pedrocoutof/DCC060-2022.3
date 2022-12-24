@@ -22,7 +22,7 @@ class IndexPageController extends Controller
 
         return view('index')->with(
             [
-                'request' => "ex. SELECT * FROM funcionarios",
+                'request' => "ex. SELECT * FROM entregadores",
                 'response' =>  '...'
             ]
         );
@@ -45,9 +45,18 @@ class IndexPageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function makeCharge(Request $request)
     {
-        //
+        DB::select("INSERT INTO `clientes` (`id_cliente`, `nome_completo`, `data_nascimento`) VALUES
+                            (NULL, 'Alice Ferreira', '2012-03-27'),
+                            (NULL, 'Jorge Jesus', '2022-12-25'),
+                            (NULL, 'Gabriel Barbosa Almeida', '1998-05-13'),
+                            (NULL, 'Bruno Henrique Pinto', '1990-12-30'),
+                            (NULL, 'Neymar Junior', '1986-12-30')");
+
+
+
+        return redirect('/');
     }
 
     /**
@@ -56,9 +65,9 @@ class IndexPageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function createTables($id)
     {
-        //
+
     }
 
     /**
@@ -67,9 +76,9 @@ class IndexPageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function dropAllTables($id)
     {
-        //
+
     }
 
     /**
