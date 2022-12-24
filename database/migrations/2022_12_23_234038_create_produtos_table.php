@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('tipo');
             $table->string('marca');
+            $table->integer('quantidade')->default(0);
             $table->decimal('valor_venda');
             $table->string('modelo');
             $table->string('categoria');

@@ -73,6 +73,10 @@
                     <a class="nav-link active" aria-current="page" href="/compra">Compra</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/parcela-compra">Parcela compra</a>
+                </li>
+
             </ul>
         </div>
     </div>

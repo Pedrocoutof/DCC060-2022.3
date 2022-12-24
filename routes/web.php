@@ -33,3 +33,10 @@ Route::get('/compra', [\App\Http\Controllers\CompraController::class, 'index']);
 Route::get('/compra/{id}/deletar', [\App\Http\Controllers\CompraController::class, 'destroy']);
 
 // endregion
+
+// region Parcelas compras
+
+Route::get('/parcela-compra', [\App\Http\Controllers\ParcelaCompraController::class, 'index']);
+Route::get('/parcela-compra/{id}/deletar', [\App\Http\Controllers\ParcelaCompraController::class, 'destroy']);
+
+// endregion
