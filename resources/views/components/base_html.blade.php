@@ -94,6 +94,10 @@
                     <a class="nav-link active" aria-current="page" href="/entregador">Entregadores</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/transportadora">Transportadoras</a>
+                </li>
+
             </ul>
         </div>
     </div>

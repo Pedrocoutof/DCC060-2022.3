@@ -66,3 +66,10 @@ Route::get('/entregador', [\App\Http\Controllers\EntregadorController::class, 'i
 Route::get('/entregador/{id}/deletar', [\App\Http\Controllers\EntregadorController::class, 'destroy']);
 
 // endregion
+
+// region Transportadora
+
+Route::get('/transportadora', [\App\Http\Controllers\TransportadoraController::class, 'index']);
+Route::get('/transportadora/{id}/deletar', [\App\Http\Controllers\TransportadoraController::class, 'destroy']);
+
+// endregion
