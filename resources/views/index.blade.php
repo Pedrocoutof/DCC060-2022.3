@@ -1,6 +1,5 @@
 @extends('components.base_html')
 @section('content')
-
     <div class="grid-container">
         <header>
             <form action="">
@@ -12,15 +11,15 @@
 
             <div class=" py-4"></div>
             <div class="form-floating">
-                <textarea disabled class="form-control" id="floatingTextarea2" style="height: 100px"> {{$response}}</textarea>
+                <textarea disabled class="form-control" id="floatingTextarea2" style="height: 100px">{{$response}}</textarea>
                 <label for="floatingTextarea2">Output</label>
             </div>
         </header>
 
         <nav>
             <h2>Testes e comandos prontos:</h2>
-            <p>SELECT * FROM funcionarios</p>
-            <p>SELECT * FROM pessoas</p>
+            <p>SELECT * FROM produtos</p>
+            <p>SELECT * FROM clientes</p>
         </nav>
     </div>
 

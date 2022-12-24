@@ -13,12 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index', [
-        "request" => "",
-        "response" => ""
-    ]);
-});
+Route::get('/', [\App\Http\Controllers\IndexPageController::class, 'index']);
 
 // region Produtos
 
