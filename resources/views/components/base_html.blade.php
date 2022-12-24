@@ -98,6 +98,10 @@
                     <a class="nav-link active" aria-current="page" href="/transportadora">Transportadoras</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/trabalha_em">Trabalha_em</a>
+                </li>
+
             </ul>
         </div>
     </div>
