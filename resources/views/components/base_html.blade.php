@@ -110,6 +110,10 @@
                     <a class="nav-link active" aria-current="page" href="/entrega">Entregas</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/parcela-venda">Parcela vendas</a>
+                </li>
+
             </ul>
         </div>
     </div>

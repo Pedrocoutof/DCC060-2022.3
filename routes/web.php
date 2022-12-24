@@ -94,3 +94,10 @@ Route::get('/entrega', [\App\Http\Controllers\EntregaController::class, 'index']
 Route::get('/entrega/{id}/deletar', [\App\Http\Controllers\EntregaController::class, 'destroy']);
 
 // endregion
+
+// region Parcelas vendas
+
+Route::get('/parcela-venda', [\App\Http\Controllers\ParcelaVendaController::class, 'index']);
+Route::get('/parcela-venda/{id}/deletar', [\App\Http\Controllers\ParcelaVendaController::class, 'destroy']);
+
+// endregion
