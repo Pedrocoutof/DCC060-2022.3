@@ -7,5 +7,5 @@
     ],
 
     'typeObj' => 'usuario',
-    'namePrimaryKey' => 'id_cliente',
+    'namePrimaryKey' => 'id_usuario',
 ])
