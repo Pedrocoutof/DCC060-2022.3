@@ -9,6 +9,6 @@
         'data_vencimento'
     ],
 
-    'typeObj' => 'parcela_compras',
+    'typeObj' => 'parcela_vendas',
     'namePrimaryKey' => 'id_parcela',
 ])

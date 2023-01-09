@@ -2,7 +2,7 @@
 
     'headerTitles' => [
         'id_transportadora',
-        'nome',
+        'nome_transportadora',
     ],
 
     'typeObj' => 'transportadora',

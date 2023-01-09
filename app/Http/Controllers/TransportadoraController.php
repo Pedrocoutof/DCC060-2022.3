@@ -22,7 +22,7 @@ class TransportadoraController extends Controller
         if($search)
         {
             $query = DB::select('SELECT * FROM transportadoras
-                                        WHERE nome LIKE "%'.$search.'%"');
+                                        WHERE nome_transportadora LIKE "%'.$search.'%"');
         }
         else{
             $query = DB::select('SELECT * FROM transportadoras');

@@ -25,7 +25,7 @@ class ParcelaVendaController extends Controller
         //                                WHERE parcela_compras LIKE "'.$search.'%"');
         //}
         //else{
-        $query = DB::select('SELECT * FROM parcela_compras');
+        $query = DB::select('SELECT * FROM parcela_vendas');
         //}
 
         return view('parcela_venda.index')->with([
@@ -97,7 +97,7 @@ class ParcelaVendaController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->id;
-        DB::select('DELETE FROM parcela_venda WHERE id_venda = '. $id);
+        DB::select('DELETE FROM parcela_vendas WHERE id_venda = '. $id);
         return redirect("parcela_venda");
     }
 }

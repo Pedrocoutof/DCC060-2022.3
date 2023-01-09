@@ -3,12 +3,12 @@
     'headerTitles' => [
         'id_venda',
         'id_transportadora',
-        'codigo_entrega',
+        'codigo',
         'valor_frete',
         'data_entrega_prevista',
         'entregue',
     ],
 
     'typeObj' => 'venda',
-    'namePrimaryKey' => 'id_venda',
+    'namePrimaryKey' => 'codigo',
 ])

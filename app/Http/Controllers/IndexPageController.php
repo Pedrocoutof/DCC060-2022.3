@@ -80,10 +80,38 @@ class IndexPageController extends Controller
                             (1, 'Andreas Pereira', 'FLPA-2021'),
                             (2, 'João Carlos da Silva', 'PCFD-2022');");
 
+        // Parcela compras
+        DB::select("INSERT INTO `parcela_compras` (`id_parcela`, `id_compra`, `pago`, `valor`, `data_pagamento`, `data_vencimento`) VALUES
+                                                                                                    ('1', '2', '1', '116,6', '2023-01-08', '2023-01-16'),
+                                                                                                    ('2', '2', '1', '116,6', '2023-02-08', '2023-02-14'),
+                                                                                                    ('3', '2', '0', '116,6', '', '');");
+
+        // Transportadoras
+        DB::select("INSERT INTO `transportadoras` (`id_transportadora`, `nome_transportadora`) VALUES
+                                                                               ('1', 'Sedex'),
+                                                                               ('2', 'Entregas Pereira'),
+                                                                               ('3', 'Expresso');");
+
         // Usuarios
+        DB::select("INSERT INTO `usuarios` (`id_usuario`, `email`, `senha`) VALUES
+                                                            ('1', 'pedrohenrique@gmail.com', 'ph123456'),
+                                                            ('2', 'marcusvinicius@gmail.com', '12345678'),
+                                                               ('3', 'pedrocouto@gmail.com', 'couto123');");
 
+        // Vendas
+        DB::select("INSERT INTO `vendas` (`id_venda`, `id_cliente`, `id_entrega`, `valor`, `forma_pagamento`, `data_inicio_pagamento`, `data_final_pagamento`) VALUES
+                        ('1', '3', '', '500', 'à vista', '', ''),
+                        ('2', '2', '1', '699,59', 'parcelado', '2023-01-08', '2023-04-30');");
 
+        // Entregas
+        DB::select("INSERT INTO `entregas` (`id_venda`, `id_transportadora`, `codigo`, `valor_frete`, `data_entrega_prevista`, `entregue`) VALUES
+                                                ('2', '2', '1', '19,90', '2023-01-25', '0'),
+                                                ('1', '1', '2', '0', '2023-01-11', '1');");
 
+        // Parcela vendas
+        DB::select("INSERT INTO `parcela_vendas` (`id_parcela`, `id_venda`, `pago`, `valor`, `data_pagamento`, `data_vencimento`) VALUES
+                                                    ('1', '2', '0', '299,00', '2023-01-08', '2023-01-17'),
+                                                    ('2', '2', '0', '400', '2023-02-08', '2023-02-17');");
 
         return redirect('/');
     }

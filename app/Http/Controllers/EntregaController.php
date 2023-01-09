@@ -28,7 +28,7 @@ class EntregaController extends Controller
             $query = DB::select('SELECT * FROM entregas');
 //        }
 
-        return view('cliente.index')->with([
+        return view('entrega.index')->with([
             "arrObj" => $query
         ]);
     }
