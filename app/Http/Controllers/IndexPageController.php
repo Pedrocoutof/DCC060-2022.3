@@ -118,9 +118,9 @@ class IndexPageController extends Controller
                                                                                                     ('3', '2', '0', '116.66', '2023-03-08', '2023-03-14');");
 
         // Vendas
-        DB::select("INSERT INTO `vendas` (`id_venda`, `id_cliente`, `id_entrega`, `valor`, `forma_pagamento`, `data_inicio_pagamento`, `data_final_pagamento`) VALUES
-                        (1, '3', NULL, '500.00', 'à vista', '2023-01-02', '2023-01-02'),
-                        (2, '2', '1', '699.59', 'parcelado', '2023-01-08', '2023-04-30');");
+        DB::select("INSERT INTO `vendas` (`id_venda`, `id_produto` ,`id_cliente`, `id_entrega`, `quantidade` ,`valor`, `forma_pagamento`, `data_inicio_pagamento`, `data_final_pagamento`) VALUES
+                        (1, 2,'3', NULL, 1, '500.00', 'à vista', '2023-01-02', '2023-01-02'),
+                        (2, 1,'2', '1', 2, '699.59', 'parcelado', '2023-01-08', '2023-04-30');");
 
         // Parcela vendas
         DB::select("INSERT INTO `parcela_vendas` (`id_parcela`, `id_venda`, `pago`, `valor`, `data_pagamento`, `data_vencimento`) VALUES
@@ -237,6 +237,7 @@ class IndexPageController extends Controller
               `id_cliente` bigint(20) UNSIGNED NOT NULL,
               `id_produto` bigint(20) UNSIGNED NOT NULL,
               `id_entrega` bigint(20) UNSIGNED,
+              `quantidade` integer not null,
               `valor` decimal(8,2) NOT NULL,
               `forma_pagamento` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
               `data_inicio_pagamento` date NOT NULL,
@@ -362,8 +363,8 @@ ALTER TABLE `venda_produtos`
 
         // region Procedure
 
+        /*
         DB::select("DROP PROCEDURE IF EXISTS atualizaEstoqueVenda");
-        DB::select("DROP PROCEDURE IF EXISTS atualizaEstoqueCompra");
 
         DB::select('CREATE PROCEDURE atualizaEstoqueVenda AS
                         BEGIN
@@ -371,14 +372,6 @@ ALTER TABLE `venda_produtos`
                            SET quantidade = quantidade - (SELECT quantidade FROM vendas WHERE vendas.id_produto = produtos.id_produto)
                            WHERE EXISTS (SELECT 1 FROM vendas WHERE vendas.id_produto = produtos.id_produto);
                         END;'
-        );
-
-        DB::select("CREATE PROCEDURE atualizaEstoqueCompra AS
-                        BEGIN
-                           UPDATE produtos
-                           SET quantidade = quantidade + (SELECT quantidade FROM compras WHERE compras.id_produto = produtos.id_produto)
-                           WHERE EXISTS (SELECT 1 FROM compras WHERE compras.id_produto = produtos.id_produto);
-                        END;"
         );
 
         // endregion
@@ -399,7 +392,7 @@ ALTER TABLE `venda_produtos`
                         BEGIN
                            EXEC atualizaEstoqueCompra;
                         END;");
-
+        */
         // endregion
 
         return redirect('/');
