@@ -47,85 +47,128 @@ class IndexPageController extends Controller
      */
     public function makeCharge(Request $request)
     {
-        // Usuarios
-        DB::select("INSERT INTO `usuarios` (`id_usuario`, `email`, `senha`) VALUES
-                                                            ('1', 'pedrohenrique@gmail.com', 'ph123456'),
-                                                            ('2', 'marcusvinicius@gmail.com', '12345678'),
-                                                            ('3', 'pedrocouto@gmail.com', 'couto123');");
+        DB::select("INSERT INTO `pessoas` (`id`, `nome`, `data_nascimento`) VALUES
+('1', 'Bruna Goncalves Ferreira', '1984-08-12'),
+('2', 'Estevan Lima Pereira', '1960-08-18'),
+('3', 'Leila Pereira Martins', '1980-06-15'),
+('4', 'Cauã Silva Correia', '2001-01-05'),
+('5', 'Luiza Castro Martins', '1986-05-17'),
+('6', 'Paulo Sousa Araujo', '1963-05-12'),
+('7', 'Thiago Azevedo Martins', '1995-03-04'),
+('8', 'Antônio Oliveira Souza', '1986-08-19'),
+('9', 'Luana Carvalho Castro', '2000-09-30'),
+('10', 'Matilde Costa Alves', '2001-03-15');
+");
 
-        // Produtos
-        DB::select("INSERT INTO `produtos` (`id_produto`, `nome`, `tipo`, `marca`, `valor_venda`, `modelo`, `categoria`, `descrição`, `quantidade`) VALUES
-                            (1, 'Violão Tagima Dallas', 'Corda', 'Tagima', '599.00', 'Dallas', 'Semi-acustico', 'Violão de corda de aço.', 10),
-                            (2, 'Violão Giannini GF1D', 'Corda', 'Giannini', '944.00', 'Folk eletro-acustico', 'Semi-acustico', 'Tampo: Sapele; Faixa e fundo: Sapele; Braço: Nato; Escala: Rosewood', 15),
-                            (3, 'Guitarra Gibson Les Paul', 'Corda', 'Gibson', '17490.00', ' Les Paul Tribute', 'Eletronico', 'A Les Paul Tribute incorporou a vibe, o toque e os tons das Les Paul tradicionais. Seu braço de perfil arredondado e seu corpo ultramoderno de peso reduzido proporcionam um incrível prazer ao tocar.', 3),
-                            (4, 'Teclado Musical Arranjador', 'Teclado', 'YAMAHA', '2.059','YPT-370', 'Eletronico', '61 teclas, 622 timbres e 48 notas de polifonia. 154 canções / 205 ritmos / 622 vozes. Efeitos: DSP, REV - X, Chorus, Equalização Master e Harmony.', 12),
-                            (5, 'Bateria Eletrônica Roland VAD507', 'Percussão', 'Roland', '45679.00', 'VAD507', 'Eletrônico', 'Kit premium V-Drums Acoustic Design com 5 peças, novos pads digitais e módulo de som TD-27 atualizado', 8),
-                            (6, 'Saxofone E-bemol', 'Sopro', 'Eastdall', '2.7078', 'Alto', 'Acustico', 'Este saxofone alto pode ser uma opção ideal para iniciantes que procuram seus primeiros saxofones', 4),
-                            (7, 'Contrabaixo Elétrico', 'Corda', 'Tagima', '1349.00', 'TW73', 'Eletronico', 'É um contrabaixo passivo da Tagima Woodstock Series, utiliza a madeira poplar na construção do corpo e o braço em maple.', 9)
-                            ;");
+        DB::select("INSERT INTO `funcionario` (`id_pessoa`, `email`, `senha`, `salario`) VALUES
+('8', 'antonio@gmail.com', '12345678', '1800'),
+('1', 'bruna@gmail.com', '87654321', '2200');
+");
 
-        // Clientes
-        DB::select("INSERT INTO `clientes` (`id_cliente`, `nome_completo`, `data_nascimento`) VALUES
-                            (1, 'Alice Ferreira', '2012-03-27'),
-                            (2, 'Jorge Jesus', '2022-12-25'),
-                            (3, 'Gabriel Barbosa Almeida', '1998-05-13'),
-                            (4, 'Bruno Henrique Pinto', '1990-12-30'),
-                            (5, 'Neymar Junior', '1986-12-30'),
-                            (6, 'Beatrice Dias Barros', '1986-07-19'),
-                            (7, 'Diogo Castro Souza', '1956-11-27'),
-                            (8, 'Isabella Dias Correia', '2002-08-29'),
-                            (9, 'Rafael Carvalho Gomes', '1960-11-08')
-                            ");
+        DB::select("INSERT INTO `clientes` (`id_pessoa`) VALUES ('2'),
+('3'),
+('4'),
+('5'),
+('6'),
+('7'),
+('8');
+");
 
-        // Telefones
-        DB::select("INSERT INTO `telefones` (`id_telefone`, `id_cliente`, `numero_telefone`) VALUES
-                                                  (1, 6, '32999999999'),
-                                                  (2, 6, '32777777777'),
-                                                  (3, 8, '32555555555'),
-                                                  (4, 9, '21888888888')
-                                                  ");
+        DB::select("INSERT INTO `entregadores` (`id_pessoa`, `placa_veiculo`) VALUES
+('9', 'PLCA456'),
+('10', 'PL4C435');
+");
 
-        // Compras
-        DB::select("INSERT INTO `compras` (`id_compra`, `id_produto`, `quantidade`, `valor`, `data_inicio_pagamento`, `data_final_pagamento`, `forma_pagamento`) VALUES
-                                (1, '1', '20', '299.00', '2022-12-01', '2022-12-01', 'a vista'),
-                                (2, '2', '30', '350.99', '2022-12-01', '2023-04-01', 'parcelado')");
+        DB::select("INSERT INTO `endereco` (`id_pessoa`, `nome_cidade`, `rua`, `numero`) VALUES ('1', 'Bicas', 'Nilson Batista', '56'),
+('2', 'Juiz de Fora', 'Rio Branco', '93'),
+('3', 'Juiz de Fora', 'Itamar Franco', '452'),
+('4', 'Juiz de Fora', 'Padre Cafe', '125'),
+('5', 'Bicas', 'Antônio Anselmo de Barros', '23'),
+('6', 'Juiz de Fora', 'Eduardo Gomes Baião', '65');
+");
 
-        // Enderecos
-        DB::select("INSERT INTO `enderecos` (`id_cliente`, `rua`, `numero`, `cidade`, `logradouro`) VALUES
-                                ('2', 'José Lourenço Kelmer', '100', 'Juiz de Fora', '-'),
-                                ('4', 'Sgt. Carlos da Silva', '98', 'Bicas', 'Prédio')");
+        DB::select("INSERT INTO `telefones`(`id_pessoa`, `numero`) VALUES
+('2','32999999999'),
+('3','32888888888'),
+('3','32777777777'),
+('4','32666666666'),
+('5','32555555555'),
+('6','32444444444'),
+('7','32333333333'),
+('7','32222222222'),
+('8','32111111111');
+");
 
-        // Entregadores
-        DB::select("INSERT INTO `entregadores` (`id_entregador`, `nome_completo`, `placa_veiculo`) VALUES
-                            (1, 'Andreas Pereira', 'FLPA-2021'),
-                            (2, 'João Carlos da Silva', 'PCFD-2022');");
+        DB::select("INSERT INTO `transportadora`(`id`, `nome_transportadora`) VALUES
+('1','Sedex'),
+('2','Express');
 
-        // Transportadoras
-        DB::select("INSERT INTO `transportadoras` (`id_transportadora`, `nome_transportadora`) VALUES
-                                                                               (1, 'Sedex'),
-                                                                               (2, 'Entregas Pereira'),
-                                                                               (3, 'Expresso');");
+");
 
-        // Entregas
-        DB::select("INSERT INTO `entregas` (`id_venda`, `id_transportadora`, `codigo`, `valor_frete`, `data_entrega_prevista`, `entregue`) VALUES
-                                                ('2', '2', '1', '19.90', '2023-01-25', '0'),
-                                                ('1', '1', '2', '0.00', '2023-01-11', '1');");
+        DB::select("INSERT INTO `transportadora_entregador`(`id_entregador`, `id_transportadora`) VALUES
+('9','1'),
+('9','2'),
+('10','2');
+");
 
-        // Parcela compras
-        DB::select("INSERT INTO `parcela_compras` (`id_parcela`, `id_compra`, `pago`, `valor`, `data_pagamento`, `data_vencimento`) VALUES
-                                                                                                    ('1', '2', '1', '116.66', '2023-01-08', '2023-01-16'),
-                                                                                                    ('2', '2', '1', '116.66', '2023-02-08', '2023-02-14'),
-                                                                                                    ('3', '2', '0', '116.66', '2023-03-08', '2023-03-14');");
+        DB::select("INSERT INTO `produtos`(`id`, `nome`, `marca`, `categoria`, `modelo`, `descricao`, `preco_venda`, `quantidade_estoque`) VALUES
+(1, 'Guitarra Elétrica', 'Fender', 'Guitarra', 'Stratocaster', 'Uma guitarra clássica de corpo sólido, cor preta', 1999.99, 10),
+(2, 'Bateria', 'Yamaha', 'Percussão', 'DTX402K', 'Uma bateria eletrônica completa com prato crash, prato ride e bumbo', 1499.99, 5),
+(3, 'Teclado', 'Casio', 'Teclado', 'CDP-120', 'Um teclado compacto com 88 teclas e recursos avançados de sons e ritmos', 699.99, 15),
+(4, 'Violão', 'Taylor', 'Guitarra', '214ce DLX', 'Um violão de tampa maciça com captador elétrico e afinador incorporado', 2199.99, 8),
+(5, 'Saxofone', 'Selmer', 'Metal', 'Paris Series II', 'Um saxofone de ouro lacado com boquilha de metal e case incluído', 2499.99, 2),
+(6, 'Gaita', 'Hohner', 'Folclore', 'Marine Band', 'Uma gaita de boca clássica com reeds de metal e case incluído', 99.99, 20),
+(7, 'Flauta Traversa', 'Yamaha', 'Madeira', 'YFL-221', 'Uma flauta traversa de madeira de granada com case incluído', 749.99, 3);
+");
 
-        // Vendas
-        DB::select("INSERT INTO `vendas` (`id_venda`, `id_produto` ,`id_cliente`, `id_entrega`, `quantidade` ,`valor`, `forma_pagamento`, `data_inicio_pagamento`, `data_final_pagamento`) VALUES
-                        (1, 2,'3', NULL, 1, '500.00', 'à vista', '2023-01-02', '2023-01-02'),
-                        (2, 1,'2', '1', 2, '699.59', 'parcelado', '2023-01-08', '2023-04-30');");
+        DB::select("INSERT INTO `compras`(`id`, `id_produto`, `quantidade`, `valor`, `forma_pagamento`, `data_inicio_pagamento`, `data_final_pagamento`) VALUES
+(1, 1, 2, 3999.98, 'parcelado', '2023-01-01', '2023-01-30'),
+(2, 2, 1, 1499.99, 'parcelado', '2022-02-01', '2021-02-15'),
+(3, 3, 3, 2099.97, 'à vista', '2021-03-01', null);
+");
 
-        // Parcela vendas
-        DB::select("INSERT INTO `parcela_vendas` (`id_parcela`, `id_venda`, `pago`, `valor`, `data_pagamento`, `data_vencimento`) VALUES
-                                                    ('1', '2', '0', '299.00', '2023-01-08', '2023-01-17'),
-                                                    ('2', '2', '0', '400.00', '2023-02-08', '2023-02-17');");
+        DB::select("INSERT INTO `parcela_compra`(`id`, `id_compra`, `valor`, `data_pagamento`, `data_vencimento`) VALUES
+                            (1,1,999.99,'2023-01-01','2023-01-08'),
+                            (2,1,999.99,null,'2023-01-15'),
+                            (3,1,999.99,null,'2023-01-22'),
+                            (4,1,999.99,null,'2023-01-30'),
+                            (5,2,499.99,'2022-02-01','2022-02-05'),
+                            (6,2,499.99,'2022-02-05','2022-02-10'),
+                            (7,2,499.99,'2022-02-10','2022-02-15');");
+
+        DB::select("INSERT INTO `vendas`(`id`, `id_cliente`, `id_entrega`, `valor`, `forma_pagamento`, `data_inicio_pagamento`, `data_final_pagamento`) VALUES
+                                                                                                                                        (1, 3, null, 3999.98, 'à vista', '2023-01-15', '2023-01-15'),
+                                                                                                                                        (2, 5, null, 1499.99, 'parcelado', '2022-02-01', '2022-03-01'),
+                                                                                                                                        (3, 6, null, 2099.97, 'à vista', '2021-03-01', '2021-03-01'),
+                                                                                                                                        (4, 7, null, 5099.99, 'parcelado', '2023-01-01', '2023-02-28');");
+
+        DB::select(" INSERT INTO `parcela_venda`(`id`, `id_venda`, `valor`, `data_pagamento`, `data_vencimento`) VALUES
+                                                    (1,1,3999.98,'2023-01-15', '2023-01-15'),
+                                                    (2,2,499.99,'2022-02-01', '2022-02-08'),
+                                                    (3,2,499.99,'2022-02-08', '2022-02-15'),
+                                                    (4,2,499.99,'2022-03-15', '2022-02-15'),
+                                                    (5,3,2099.97,'2022-03-01', '2022-03-01'),
+                                                    (6,4,1020.99,'2023-01-01', '2023-02-07'),
+                                                    (7,4,1020.99,'2023-01-08', '2023-02-15'),
+                                                    (8,4,1020.99,'2023-01-16', '2023-02-23'),
+                                                    (9,4,1020.99,'2023-01-24', '2023-02-24'),
+                                                    (10,4,1020.99,'2023-01-01', '2023-01-1');
+");
+        DB::select("INSERT INTO `entregas`(`id_venda`, `id_transportadora`, `id`, `valor_frete`, `data_entrega_prevista`, `entregue`) VALUES
+                                (1, 1, 1, 30.50, '2023-01-22', true),
+                                (2, 2, 2, 45.00, '2022-02-08', false);
+");
+        DB::select("INSERT INTO `venda_produto`(`id_venda`, `id_produto`) VALUES
+                            (1, 1),
+                            (1, 4),
+                            (2, 2),
+                            (3, 3),
+                            (3, 7),
+                            (3, 6),
+                            (4, 3),
+                            (4, 4),
+                            (4, 5);
+");
 
         return redirect('/');
     }
@@ -140,229 +183,157 @@ class IndexPageController extends Controller
     {
         // region Create
         DB::select("
-                CREATE TABLE `clientes` (
-                `id_cliente` bigint(20) UNSIGNED NOT NULL,
-                `nome_completo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                `data_nascimento` date NOT NULL
-                )
-            ");
+                    CREATE TABLE Pessoas (
+                    id INTEGER NOT NULL,
+                    nome varchar(255) NOT NULL,
+                    data_nascimento date NOT NULL,
+                     PRIMARY KEY (id) );");
 
-        DB::select("CREATE TABLE `compras` (
-                      `id_compra` bigint(20) UNSIGNED NOT NULL,
-                      `id_produto` bigint(20) UNSIGNED NOT NULL,
-                      `quantidade` int(11) NOT NULL,
-                      `valor` decimal(8,2) NOT NULL,
-                      `data_inicio_pagamento` date NOT NULL,
-                      `data_final_pagamento` date NOT NULL,
-                      `forma_pagamento` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-                )");
+        DB::select("CREATE TABLE Telefones (
+                     id_pessoa INTEGER NOT NULL,
+                    numero VARCHAR(14) NOT NULL,
+                    FOREIGN KEY (id_pessoa) REFERENCES pessoas(id),
+                    PRIMARY KEY (id_pessoa, numero));");
 
-        DB::select("CREATE TABLE `enderecos` (
-                  `id_cliente` bigint(20) UNSIGNED NOT NULL,
-                  `rua` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                  `numero` int(11) NOT NULL,
-                  `cidade` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                  `logradouro` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-                )");
+                    DB::select("CREATE TABLE Endereco
+                    ( id_pessoa INTEGER NOT NULL,
+                    nome_cidade varchar(25) NOT NULL,
+                    rua varchar(50) NOT NULL,
+                    numero integer NOT NULL,
+                    FOREIGN KEY (id_pessoa) REFERENCES pessoas(id),
+                    PRIMARY KEY (id_pessoa));");
 
-        DB::select("CREATE TABLE `entregadores` (
-                  `id_entregador` bigint(20) UNSIGNED NOT NULL,
-                  `nome_completo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                  `placa_veiculo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-)");
+                    DB::select("CREATE TABLE Funcionario (
+                    id_pessoa INTEGER NOT NULL,
+                    email varchar(255) NOT NULL,
+                    senha varchar(255) NOT NULL,
+                    salario decimal NOT NULL,
+                    FOREIGN KEY (id_pessoa) REFERENCES pessoas(id),
+                     PRIMARY KEY (id_pessoa)  );");
 
-        DB::select("CREATE TABLE `entregas` (
-                          `id_venda` bigint(20) UNSIGNED NOT NULL,
-                          `id_transportadora` bigint(20) UNSIGNED NOT NULL,
-                          `codigo` int(11) NOT NULL,
-                          `valor_frete` decimal(8,2) NOT NULL,
-                          `data_entrega_prevista` date NOT NULL,
-                          `entregue` tinyint(1) NOT NULL
-)");
+                    DB::select("CREATE TABLE Clientes (
+                    id_pessoa INTEGER NOT NULL,
+                    FOREIGN KEY (id_pessoa) REFERENCES pessoas(id),
+                    PRIMARY KEY (id_pessoa));");
 
-        DB::select("CREATE TABLE `parcela_compras` (
-                          `id_parcela` bigint(20) UNSIGNED NOT NULL,
-                          `id_compra` bigint(20) UNSIGNED NOT NULL,
-                          `pago` tinyint(1) NOT NULL DEFAULT 0,
-                          `valor` decimal(8,2) NOT NULL,
-                          `data_pagamento` date NOT NULL,
-                          `data_vencimento` date NOT NULL
-)");
+                    DB::select("CREATE TABLE Entregadores (
+                    id_pessoa INTEGER NOT NULL,
+                    placa_veiculo VARCHAR(7),
+                    FOREIGN KEY (id_pessoa) REFERENCES pessoas(id),
+                    PRIMARY KEY (id_pessoa));");
 
-        DB::select("CREATE TABLE `parcela_vendas` (
-                  `id_parcela` bigint(20) UNSIGNED NOT NULL,
-                  `id_venda` bigint(20) UNSIGNED NOT NULL,
-                  `pago` tinyint(1) NOT NULL DEFAULT 0,
-                  `valor` decimal(8,2) NOT NULL,
-                  `data_pagamento` date NOT NULL,
-                  `data_vencimento` date NOT NULL
-                )");
+                    DB::select("CREATE TABLE Transportadora (
+                    id INTEGER NOT NULL,
+                    nome_transportadora VARCHAR(7),
+                        PRIMARY KEY (id));");
 
-        DB::select("CREATE TABLE `produtos` (
-                      `id_produto` bigint(20) UNSIGNED NOT NULL,
-                      `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                      `tipo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                      `marca` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                      `quantidade` int(11) NOT NULL DEFAULT 0,
-                      `valor_venda` decimal(8,2) NOT NULL,
-                      `modelo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                      `categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                      `descrição` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ");
+                    DB::select("CREATE TABLE transportadora_entregador (
+                    id_entregador INTEGER NOT NULL,
+                    id_transportadora INTEGER NOT NULL,
+                    FOREIGN KEY (id_entregador) REFERENCES entregadores(id_pessoa),
+                    FOREIGN KEY (id_transportadora) REFERENCES transportadora(id),
+                    PRIMARY KEY (id_entregador, id_transportadora));");
 
-        DB::select("CREATE TABLE `telefones` (
-                      `id_telefone` bigint(20) UNSIGNED NOT NULL,
-                      `id_cliente` bigint(20) UNSIGNED NOT NULL,
-                      `numero_telefone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-            )");
+                    DB::select("CREATE TABLE Entregas (
+                    id_venda INTEGER NOT NULL,
+                    id_transportadora INTEGER NOT NULL,
+                    id INTEGER NOT NULL,
+                    valor_frete decimal DEFAULT 0,
+                    data_entrega_prevista date,
+                    entregue boolean DEFAULT false,
+                    FOREIGN KEY (id_transportadora) REFERENCES transportadora(id),
+                    PRIMARY KEY (id));");
 
-        DB::select("CREATE TABLE `trabalha_em` (
-                      `id_transportadora` bigint(20) UNSIGNED NOT NULL,
-                      `id_entregador` bigint(20) UNSIGNED NOT NULL
-            )");
+                    DB::select("CREATE TABLE Vendas (
+                    id INTEGER NOT NULL,
+                    id_cliente INTEGER NOT NULL,
+                    id_entrega INTEGER,
+                    valor decimal,
+                    forma_pagamento varchar(15),
+                    data_inicio_pagamento date NOT NULL,
+                    data_final_pagamento date,
+                    FOREIGN KEY (id_cliente) REFERENCES clientes(id_pessoa),
+                    FOREIGN KEY (id_entrega) REFERENCES entregas(id),
+                    PRIMARY KEY (id));");
 
-        DB::select("CREATE TABLE `transportadoras` (
-              `id_transportadora` bigint(20) UNSIGNED NOT NULL,
-              `nome_transportadora` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ");
+                    DB::select("ALTER TABLE entregas ADD CONSTRAINT id_vendas
+                    FOREIGN KEY(id_venda) REFERENCES vendas(id);");
 
-        DB::select("CREATE TABLE `usuarios` (
-              `id_usuario` bigint(20) UNSIGNED NOT NULL,
-              `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-              `senha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-)");
+                    DB::select("CREATE TABLE parcela_venda (
+                    id INTEGER NOT NULL,
+                    id_venda INTEGER NOT NULL,
+                    valor decimal,
+                    data_pagamento date,
+                    data_vencimento date NOT NULL,
+                    FOREIGN KEY (id_venda) REFERENCES vendas(id),
+                    PRIMARY KEY (id));");
 
-        DB::select("CREATE TABLE `vendas` (
-              `id_venda` bigint(20) UNSIGNED NOT NULL,
-              `id_cliente` bigint(20) UNSIGNED NOT NULL,
-              `id_produto` bigint(20) UNSIGNED NOT NULL,
-              `id_entrega` bigint(20) UNSIGNED,
-              `quantidade` integer not null,
-              `valor` decimal(8,2) NOT NULL,
-              `forma_pagamento` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-              `data_inicio_pagamento` date NOT NULL,
-              `data_final_pagamento` date NOT NULL
-)");
+                    DB::select("CREATE TABLE produtos (
+                    id INTEGER NOT NULL,
+                    nome varchar(25) NOT NULL,
+                    marca varchar(50) NOT NULL,
+                    categoria varchar(50) NOT NULL,
+                    modelo varchar(50) NOT NULL,
+                    descricao varchar(250) NOT NULL,
+                    preco_venda DECIMAL NOT NULL,
+                    quantidade_estoque INTEGER DEFAULT 0,
+                    PRIMARY KEY (id));");
 
-        DB::select("CREATE TABLE `venda_produtos` (
-              `id_venda` bigint(20) UNSIGNED NOT NULL,
-              `id_produto` bigint(20) UNSIGNED NOT NULL
-)");
-    // endregion
+                    DB::select("CREATE TABLE venda_produto (
+                    id_venda INTEGER NOT NULL,
+                    id_produto INTEGER NOT NULL,
+                    FOREIGN KEY (id_venda) REFERENCES vendas(id),
+                    FOREIGN KEY (id_produto) REFERENCES produtos(id),
+                    PRIMARY KEY (id_venda, id_produto));");
 
-        // region Alters
+                    DB::select("CREATE TABLE Compras (
+                    id INTEGER NOT NULL,
+                    id_produto INTEGER NOT NULL,
+                    quantidade INTEGER NOT NULL,
+                    valor decimal,
+                    forma_pagamento varchar(15),
+                    data_inicio_pagamento date NOT NULL,
+                    data_final_pagamento date,
+                    FOREIGN KEY (id_produto) REFERENCES produtos(id),
+                    PRIMARY KEY (id));");
 
-        DB::select("ALTER TABLE `clientes`
-              ADD PRIMARY KEY (`id_cliente`);
-");
-        DB::select("ALTER TABLE `compras`
-              ADD PRIMARY KEY (`id_compra`),
-              ADD KEY `compras_id_produto_foreign` (`id_produto`);");
-
-        DB::select("ALTER TABLE `enderecos`
-              ADD PRIMARY KEY (`id_cliente`);");
-
-        DB::select("ALTER TABLE `entregadores`
-              ADD PRIMARY KEY (`id_entregador`);");
-
-        DB::select("ALTER TABLE `entregas`
-              ADD PRIMARY KEY (`codigo`),
-              ADD UNIQUE KEY `entregas_codigo_unique` (`codigo`),
-              ADD KEY `entregas_id_transportadora_foreign` (`id_transportadora`);
-");
-
-        DB::select("ALTER TABLE `parcela_compras`
-  ADD PRIMARY KEY (`id_parcela`),
-  ADD KEY `parcela_compras_id_compra_foreign` (`id_compra`);");
-        DB::select("ALTER TABLE `parcela_vendas`
-              ADD PRIMARY KEY (`id_parcela`),
-              ADD KEY `parcela_vendas_id_venda_foreign` (`id_venda`);");
-
-        DB::select("ALTER TABLE `produtos`
-              ADD PRIMARY KEY (`id_produto`);");
-
-        DB::select("ALTER TABLE `telefones`
-              ADD PRIMARY KEY (`id_telefone`),
-              ADD UNIQUE KEY `telefones_numero_telefone_unique` (`numero_telefone`),
-              ADD KEY `telefones_id_cliente_foreign` (`id_cliente`);
-");
-        DB::select("ALTER TABLE `trabalha_em`
-              ADD KEY `trabalha_em_id_transportadora_foreign` (`id_transportadora`),
-              ADD KEY `trabalha_em_id_entregador_foreign` (`id_entregador`);");
-
-        DB::select("ALTER TABLE `transportadoras`
-              ADD PRIMARY KEY (`id_transportadora`);
-");
-        DB::select("ALTER TABLE `usuarios`
-              ADD PRIMARY KEY (`id_usuario`);");
-
-        DB::select("ALTER TABLE `vendas`
-            ADD PRIMARY KEY (`id_venda`),
-            ADD KEY `vendas_id_produtos_foreign` (`id_produto`),
-            ADD KEY `vendas_id_cliente_foreign` (`id_cliente`);");
-
-        DB::select("ALTER TABLE `venda_produtos`
-            ADD KEY `venda_produtos_id_venda_foreign` (`id_venda`),
-            ADD KEY `venda_produtos_id_produto_foreign` (`id_produto`);");
-// endregion
-
-        // region FK
-
-        DB::select("ALTER TABLE `compras`
-  ADD CONSTRAINT `compras_id_produto_foreign` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`) ON UPDATE CASCADE;");
-
-        DB::select("
-ALTER TABLE `enderecos`
-  ADD CONSTRAINT `enderecos_id_cliente_foreign` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`);");
-
-        DB::select("
-ALTER TABLE `entregas`
-  ADD CONSTRAINT `entregas_id_transportadora_foreign` FOREIGN KEY (`id_transportadora`) REFERENCES `transportadoras` (`id_transportadora`);");
-
-        DB::select("
-ALTER TABLE `parcela_compras`
-  ADD CONSTRAINT `parcela_compras_id_compra_foreign` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id_compra`) ON DELETE CASCADE ON UPDATE CASCADE;");
-
-        DB::select("
-ALTER TABLE `parcela_vendas`
-  ADD CONSTRAINT `parcela_vendas_id_venda_foreign` FOREIGN KEY (`id_venda`) REFERENCES `vendas` (`id_venda`) ON DELETE CASCADE ON UPDATE CASCADE;");
-
-        DB::select("
-ALTER TABLE `telefones`
-  ADD CONSTRAINT `telefones_id_cliente_foreign` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE;");
-
-        DB::select("
-ALTER TABLE `trabalha_em`
-  ADD CONSTRAINT `trabalha_em_id_entregador_foreign` FOREIGN KEY (`id_entregador`) REFERENCES `entregadores` (`id_entregador`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `trabalha_em_id_transportadora_foreign` FOREIGN KEY (`id_transportadora`) REFERENCES `transportadoras` (`id_transportadora`) ON DELETE CASCADE ON UPDATE CASCADE;
-");
-
-        DB::select("
-ALTER TABLE `vendas`
-  ADD CONSTRAINT `vendas_id_cliente_foreign` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`);");
-
-        DB::select("
-ALTER TABLE `venda_produtos`
-  ADD CONSTRAINT `venda_produtos_id_produto_foreign` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`),
-  ADD CONSTRAINT `venda_produtos_id_venda_foreign` FOREIGN KEY (`id_venda`) REFERENCES `vendas` (`id_venda`);
-");
+                    DB::select("CREATE TABLE parcela_compra (
+                    id INTEGER NOT NULL,
+                    id_compra INTEGER NOT NULL,
+                    valor decimal,
+                    data_pagamento date,
+                    data_vencimento date NOT NULL,
+                    FOREIGN KEY (id_compra) REFERENCES compras(id),
+                    PRIMARY KEY (id));");
 
         // endregion
 
+
+
         // region View
 
-        DB::select("CREATE OR REPLACE VIEW numero_clientes AS
-            SELECT nome_completo, numero_telefone
-            FROM clientes
-            INNER JOIN telefones
-            ON ( clientes.id_cliente = telefones.id_cliente )
+        DB::select("CREATE OR REPLACE VIEW clientes_entrega_nao_finalizadas AS
+                            SELECT *
+                            FROM pessoas
+                            LEFT JOIN telefones
+                            ON (pessoas.id = telefones.id_pessoa)
+                            WHERE pessoas.id IN (
+                                SELECT id_cliente
+                                FROM vendas
+                                INNER JOIN entregas
+                                ON entregas.id_venda = vendas.id
+                                WHERE entregas.entregue = false
+                                )");
 
-");
+        DB::select("CREATE OR REPLACE VIEW baixo_estoque AS
+                            SELECT nome, quantidade_estoque
+                            FROM produtos
+                            WHERE quantidade_estoque < 5;");
 
         //endregion
 
         // region Procedure
-
+/*
         DB::select("DROP PROCEDURE IF EXISTS atualizaEstoqueVenda");
         DB::select("DROP PROCEDURE IF EXISTS atualizaEstoqueCompra");
 
@@ -379,17 +350,17 @@ ALTER TABLE `venda_produtos`
         NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER UPDATE produtos
         SET quantidade = quantidade + (SELECT quantidade FROM compras WHERE compras.id_produto = produtos.id_produto)
         WHERE EXISTS (SELECT 1 FROM compras WHERE compras.id_produto = produtos.id_produto);'
-        );
+        );*/
 
         // endregion
 
         // region Trigger
-
+/*
         DB::select("CREATE TRIGGER `triggerAtualizaEstoqueCompra` AFTER INSERT ON `compras` FOR EACH ROW CALL atualizaEstoqueCompra;");
 
 
         DB::select("CREATE TRIGGER `triggerAtualizaEstoqueVenda` AFTER INSERT ON `vendas` FOR EACH ROW CALL atualizaEstoqueVenda;");
-
+*/
         // endregion
 
         return redirect('/');
@@ -403,19 +374,19 @@ ALTER TABLE `venda_produtos`
      */
     public function dropAllTables()
     {
+        DB::select("SET foreign_key_checks = 0;");
+        DB::select("DROP VIEW clientes_entrega_nao_finalizadas");
+        DB::select("DROP VIEW baixo_estoque");
         DB::select("
-        DROP TABLE
-            `enderecos`,
-            `entregas`, `parcela_compras`,
-            `parcela_vendas`,
-            `telefones`, `trabalha_em`,
-            `transportadoras`, `usuarios`,
-            `venda_produtos`;
+        DROP TABLE `clientes`, `compras`,
+            `endereco`, `entregadores`,
+            `entregas`, `funcionario`,
+            `parcela_compra`, `parcela_venda`,
+            `pessoas`, `produtos`, `telefones`,
+            `transportadora`, `transportadora_entregador`,
+            `vendas`, `venda_produto`;
         ");
-
-        DB::select("DROP TABLE `compras`, `entregadores`, `produtos`, `vendas`;");
-
-        DB::select("DROP TABLE `clientes`");
+        DB::select("SET foreign_key_checks = 1;");
 
         return redirect('/');
 
