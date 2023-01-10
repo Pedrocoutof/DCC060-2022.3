@@ -370,7 +370,7 @@ ALTER TABLE `venda_produtos`
         CREATE DEFINER=`root`@`localhost` PROCEDURE `atualizaEstoqueVenda`()
         NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER UPDATE produtos
         SET quantidade = quantidade - (SELECT quantidade FROM vendas WHERE vendas.id_produto = produtos.id_produto)
-        WHERE EXISTS (SELECT 1 FROM vendas WHERE vendas.id_produto = produtos.id);'
+        WHERE EXISTS (SELECT 1 FROM vendas WHERE vendas.id_produto = produtos.id_produto);'
         );
 
 
@@ -378,28 +378,18 @@ ALTER TABLE `venda_produtos`
         CREATE DEFINER=`root`@`localhost` PROCEDURE `atualizaEstoqueCompra`()
         NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER UPDATE produtos
         SET quantidade = quantidade + (SELECT quantidade FROM compras WHERE compras.id_produto = produtos.id_produto)
-        WHERE EXISTS (SELECT 1 FROM compras WHERE compras.id_produto = produtos.id);'
+        WHERE EXISTS (SELECT 1 FROM compras WHERE compras.id_produto = produtos.id_produto);'
         );
-        /*
+
         // endregion
 
         // region Trigger
 
-        DB::select("CREATE TRIGGER atualizaEstoqueVendaTrigger
-                        AFTER INSERT ON vendas
-                        FOR EACH ROW
-                        BEGIN
-                           EXEC atualizaEstoqueVenda;
-                        END;");
+        DB::select("CREATE TRIGGER `triggerAtualizaEstoqueCompra` AFTER INSERT ON `compras` FOR EACH ROW CALL atualizaEstoqueCompra;");
 
 
-        DB::select("CREATE TRIGGER atualizaEstoqueCompraTrigger
-                        AFTER INSERT ON compras
-                        FOR EACH ROW
-                        BEGIN
-                           EXEC atualizaEstoqueCompra;
-                        END;");
-        */
+        DB::select("CREATE TRIGGER `triggerAtualizaEstoqueVenda` AFTER INSERT ON `vendas` FOR EACH ROW CALL atualizaEstoqueVenda;");
+
         // endregion
 
         return redirect('/');
