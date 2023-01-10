@@ -5,6 +5,7 @@
         <header>
 
             <a class="btn btn-danger" href="dropAllTables"> Drop tabelas </a>
+            <a class="btn btn-danger" href="deleteTables"> Delete tabelas </a>
             <a class="btn btn-success" href="createTables"> Criar tabelas </a>
             <a class="btn btn-warning" href="carga"> Realizar carga </a>
             <form action="" class="py-4">
