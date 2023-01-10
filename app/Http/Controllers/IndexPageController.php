@@ -363,17 +363,24 @@ ALTER TABLE `venda_produtos`
 
         // region Procedure
 
-        /*
         DB::select("DROP PROCEDURE IF EXISTS atualizaEstoqueVenda");
+        DB::select("DROP PROCEDURE IF EXISTS atualizaEstoqueCompra");
 
-        DB::select('CREATE PROCEDURE atualizaEstoqueVenda AS
-                        BEGIN
-                           UPDATE produtos
-                           SET quantidade = quantidade - (SELECT quantidade FROM vendas WHERE vendas.id_produto = produtos.id_produto)
-                           WHERE EXISTS (SELECT 1 FROM vendas WHERE vendas.id_produto = produtos.id_produto);
-                        END;'
+        DB::select('
+        CREATE DEFINER=`root`@`localhost` PROCEDURE `atualizaEstoqueVenda`()
+        NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER UPDATE produtos
+        SET quantidade = quantidade - (SELECT quantidade FROM vendas WHERE vendas.id_produto = produtos.id_produto)
+        WHERE EXISTS (SELECT 1 FROM vendas WHERE vendas.id_produto = produtos.id);'
         );
 
+
+        DB::select('
+        CREATE DEFINER=`root`@`localhost` PROCEDURE `atualizaEstoqueCompra`()
+        NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER UPDATE produtos
+        SET quantidade = quantidade + (SELECT quantidade FROM compras WHERE compras.id_produto = produtos.id_produto)
+        WHERE EXISTS (SELECT 1 FROM compras WHERE compras.id_produto = produtos.id);'
+        );
+        /*
         // endregion
 
         // region Trigger
