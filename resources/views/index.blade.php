@@ -7,6 +7,7 @@
             <a class="btn btn-danger" href="dropAllTables"> Drop tabelas </a>
             <a class="btn btn-success" href="createTables"> Criar tabelas </a>
             <a class="btn btn-warning" href="carga"> Realizar carga </a>
+
             <form action="" class="py-4">
                 <div class="form-group">
                     <textarea name="inputSql" class="form-control" id="exampleFormControlTextarea1" rows="3">{{$request}}</textarea>

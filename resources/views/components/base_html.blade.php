@@ -94,6 +94,13 @@
                     <a class="nav-link active" aria-current="page" href="/entregador">Entregadores</a>
                 </li>
 
+                <p>|</p>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/input_cliente">InputCliente</a>
+                </li>
+
+
             </ul>
         </div>
     </div>

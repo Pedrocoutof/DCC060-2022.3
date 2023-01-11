@@ -44,7 +44,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente.create');
     }
 
     /**
@@ -53,9 +53,12 @@ class ClienteController extends Controller
      * @param  \App\Http\Requests\StoreClienteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClienteRequest $request)
+    public function store(Request $request)
     {
-        //
+        DB::select("INSERT INTO pessoas VALUES (".$request->id.",'".$request->nome."','".$request->data_nascimento."' )");
+        DB::select("INSERT INTO clientes VALUES (".$request->id.")");
+
+        return redirect('/');
     }
 
     /**

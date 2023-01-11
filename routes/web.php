@@ -54,6 +54,9 @@ Route::get('/parcela-compra/{id}/deletar', [\App\Http\Controllers\ParcelaCompraC
 
 Route::get('/cliente', [\App\Http\Controllers\ClienteController::class, 'index']);
 Route::get('/cliente/{id}/deletar', [\App\Http\Controllers\ClienteController::class, 'destroy']);
+Route::get('/input_cliente', [\App\Http\Controllers\ClienteController::class, 'create']);
+Route::get('/create_cliente', [\App\Http\Controllers\ClienteController::class, 'store']);
+
 
 // endregion
 
