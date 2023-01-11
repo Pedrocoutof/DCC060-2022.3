@@ -100,6 +100,10 @@
                     <a class="nav-link active" aria-current="page" href="/input_cliente">InputCliente</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/input_funcionario">InputFuncionario</a>
+                </li>
+
 
             </ul>
         </div>

@@ -34,6 +34,9 @@ Route::get('/pessoas/{id}/deletar', [\App\Http\Controllers\PessoasController::cl
 // region Funcionarios
 Route::get('/funcionarios', [\App\Http\Controllers\FuncionariosController::class, 'index']);
 Route::get('/funcionarios/{id}/deletar', [\App\Http\Controllers\FuncionariosController::class, 'destroy']);
+Route::get('/input_funcionario', [\App\Http\Controllers\FuncionariosController::class, 'create']);
+Route::get('/create_funcionario', [\App\Http\Controllers\FuncionariosController::class, 'store']);
+
 // endregion
 
 // region Compra

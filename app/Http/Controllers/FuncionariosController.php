@@ -44,7 +44,7 @@ class FuncionariosController extends Controller
      */
     public function create()
     {
-        //
+        return view('funcionarios.create');
     }
 
     /**
@@ -53,9 +53,16 @@ class FuncionariosController extends Controller
      * @param  \App\Http\Requests\StoreFuncionariosRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFuncionariosRequest $request)
+    public function store(Request $request)
     {
-        //
+
+        DB::select("INSERT INTO pessoas VALUES
+                        (".$request->id.",'".$request->nome."','".$request->data_nascimento."' )");
+
+        DB::select("INSERT INTO funcionario VALUES
+                            (".$request->id.",'".$request->email."','".$request->senha."',".$request->salario.")");
+
+        return redirect('/');
     }
 
     /**
