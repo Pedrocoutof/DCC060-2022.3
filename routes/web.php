@@ -27,10 +27,13 @@ Route::get('/produto/{id}/deletar', [\App\Http\Controllers\ProdutoController::cl
 
 // endregion
 // region Pessoas
-
 Route::get('/pessoas', [\App\Http\Controllers\PessoasController::class, 'index']);
 Route::get('/pessoas/{id}/deletar', [\App\Http\Controllers\PessoasController::class, 'destroy']);
+// endregion
 
+// region Funcionarios
+Route::get('/funcionarios', [\App\Http\Controllers\FuncionariosController::class, 'index']);
+Route::get('/funcionarios/{id}/deletar', [\App\Http\Controllers\FuncionariosController::class, 'destroy']);
 // endregion
 
 // region Compra

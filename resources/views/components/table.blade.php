@@ -16,9 +16,6 @@
             @foreach($headerTitles as $headerTitle)
                 <th scope="col">{{$headerTitle}}</th>
             @endforeach
-            <th>
-                Opcoes
-            </th>
         </tr>
         </thead>
         <tbody>
@@ -28,12 +25,6 @@
             @foreach($headerTitles as $headerTitle)
                 <td>{{$obj->$headerTitle}}</td>
             @endforeach
-
-            <td>
-                <a type="button" class="btn btn-primary" href="{{$typeObj}}/{{$obj->$namePrimaryKey}}/visualizar"><i>Visualizar</i></a>
-                <a type="button" class="btn btn-warning" href="{{$typeObj}}/{{$obj->$namePrimaryKey}}/editar"><i>Editar</i></a>
-                <a type="button" class="btn btn-danger" href="{{$typeObj}}/{{$obj->$namePrimaryKey}}/deletar"><i>Deletar</i></a>
-            </td>
         </tr>
         @endforeach
         </tbody>
