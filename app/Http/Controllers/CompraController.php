@@ -40,7 +40,10 @@ class CompraController extends Controller
      */
     public function create()
     {
-        //
+        $produtos = DB::select("SELECT nome, id
+                                      FROM produtos");
+
+        return view('compra.create', ['produtos' => $produtos]);
     }
 
     /**
@@ -49,9 +52,16 @@ class CompraController extends Controller
      * @param  \App\Http\Requests\StoreCompraRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCompraRequest $request)
+    public function store(Request $request)
     {
-        //
+        DB::select("UPDATE produtos
+                    SET quantidade_estoque = quantidade_estoque + ". $request->quantidade."
+                    WHERE id = ".$request->produto[0]);
+
+        DB::select("INSERT INTO `compras`(`id`, `id_produto`, `quantidade`, `valor`, `forma_pagamento`, `data_inicio_pagamento`) VALUES
+                                            (".$request->id_compra.",".$request->produto[0].",".$request->quantidade.",".$request->valor.",'".$request->forma_pagamento."','".$request->data_inicio_pagamento."')");
+
+        return redirect('/');
     }
 
     /**

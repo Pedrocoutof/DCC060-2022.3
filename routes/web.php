@@ -44,7 +44,7 @@ Route::get('/create_funcionario', [\App\Http\Controllers\FuncionariosController:
 Route::get('/compra', [\App\Http\Controllers\CompraController::class, 'index']);
 Route::get('/compra/{id}/deletar', [\App\Http\Controllers\CompraController::class, 'destroy']);
 Route::get('/input_compra', [\App\Http\Controllers\CompraController::class, 'create']);
-Route::get('/store', [\App\Http\Controllers\CompraController::class, 'store']);
+Route::get('/store_compra', [\App\Http\Controllers\CompraController::class, 'store']);
 
 // endregion
 
