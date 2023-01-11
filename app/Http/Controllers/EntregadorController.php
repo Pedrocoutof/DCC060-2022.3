@@ -15,17 +15,21 @@ class EntregadorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $search = $request['inputSearch'] ?? "";
 
         if($search)
         {
             $query = DB::select('SELECT * FROM entregadores
-                                        WHERE nome_completo LIKE "%'.$search.'%"');
+                                       INNER JOIN pessoas
+                                       ON (id_pessoa = id)
+                                        WHERE nome LIKE "%'.$search.'%"');
         }
         else{
-            $query = DB::select('SELECT * FROM entregadores');
+            $query = DB::select('SELECT * FROM entregadores
+                                       INNER JOIN pessoas
+                                       ON id_pessoa = id');
         }
 
         return view('entregador.index')->with([

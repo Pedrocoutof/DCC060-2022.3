@@ -74,7 +74,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/parcela-compra">Parcela compra</a>
+                    <a class="nav-link active" aria-current="page" href="/venda">Vendas</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/pessoas">Pessoas</a>
                 </li>
 
                 <li class="nav-item">
@@ -82,36 +87,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/telefone">Telefones</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/endereco">Endereços</a>
+                    <a class="nav-link active" aria-current="page" href="/funcionarios">Funcionarios</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/entregador">Entregadores</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/transportadora">Transportadoras</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/usuario">Usuarios</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/venda">Vendas</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/entrega">Entregas</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/parcela-venda">Parcela vendas</a>
                 </li>
 
             </ul>

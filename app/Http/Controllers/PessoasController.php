@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
-use App\Http\Requests\StoreClienteRequest;
-use App\Http\Requests\UpdateClienteRequest;
+use App\Models\Pessoas;
+use App\Http\Requests\StorePessoasRequest;
+use App\Http\Requests\UpdatePessoasRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ClienteController extends Controller
+class PessoasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,18 +21,14 @@ class ClienteController extends Controller
 
         if($search)
         {
-            $query = DB::select('SELECT * FROM clientes
-                                       INNER JOIN pessoas
-                                       ON (id_pessoa = id)
+            $query = DB::select('SELECT * FROM pessoas
                                         WHERE nome LIKE "%'.$search.'%"');
         }
         else{
-            $query = DB::select('SELECT * FROM clientes
-                                       INNER JOIN pessoas
-                                       ON (id_pessoa = id)');
+            $query = DB::select('SELECT * FROM pessoas');
         }
 
-        return view('cliente.index')->with([
+        return view('pessoas.index')->with([
             "arrObj" => $query
         ]);
     }
@@ -50,10 +46,10 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreClienteRequest  $request
+     * @param  \App\Http\Requests\StorePessoasRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClienteRequest $request)
+    public function store(StorePessoasRequest $request)
     {
         //
     }
@@ -61,10 +57,10 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Pessoas  $pessoas
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(Pessoas $pessoas)
     {
         //
     }
@@ -72,10 +68,10 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Pessoas  $pessoas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit(Pessoas $pessoas)
     {
         //
     }
@@ -83,11 +79,11 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateClienteRequest  $request
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Http\Requests\UpdatePessoasRequest  $request
+     * @param  \App\Models\Pessoas  $pessoas
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClienteRequest $request, Cliente $cliente)
+    public function update(UpdatePessoasRequest $request, Pessoas $pessoas)
     {
         //
     }
@@ -95,13 +91,11 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Pessoas  $pessoas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Pessoas $pessoas)
     {
-        $id = $request->id;
-        DB::select('DELETE FROM compras WHERE id_cliente = '. $id);
-        return redirect("cliente");
+        //
     }
 }

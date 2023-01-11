@@ -1,11 +1,11 @@
 @extends('components.table',[
 
     'headerTitles' => [
-        'id_pessoa',
+        'id',
         'nome',
         'data_nascimento'
     ],
 
-    'typeObj' => 'cliente',
-    'namePrimaryKey' => 'id_pessoa',
+    'typeObj' => 'pessoas',
+    'namePrimaryKey' => 'id',
 ])

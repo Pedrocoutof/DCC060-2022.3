@@ -1,5 +1,5 @@
 @extends('components.table',[
-    'headerTitles' => ['id_produto','nome','quantidade','tipo','marca','valor_venda','modelo','categoria','descrição'],
+    'headerTitles' => ['id','nome','quantidade_estoque', 'preco_venda' ,'marca'],
     'typeObj' => 'produto',
-    'namePrimaryKey' => 'id_produto',
+    'namePrimaryKey' => 'id',
 ])
