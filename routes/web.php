@@ -43,6 +43,8 @@ Route::get('/create_funcionario', [\App\Http\Controllers\FuncionariosController:
 
 Route::get('/compra', [\App\Http\Controllers\CompraController::class, 'index']);
 Route::get('/compra/{id}/deletar', [\App\Http\Controllers\CompraController::class, 'destroy']);
+Route::get('/input_compra', [\App\Http\Controllers\CompraController::class, 'create']);
+Route::get('/store', [\App\Http\Controllers\CompraController::class, 'store']);
 
 // endregion
 
@@ -91,7 +93,7 @@ Route::get('/transportadora/{id}/deletar', [\App\Http\Controllers\Transportadora
 
 // endregion
 
-// region Transportadora
+// region Usuario
 
 Route::get('/usuario', [\App\Http\Controllers\UsuarioController::class, 'index']);
 Route::get('/usuario/{id}/deletar', [\App\Http\Controllers\UsuarioController::class, 'destroy']);
@@ -102,6 +104,9 @@ Route::get('/usuario/{id}/deletar', [\App\Http\Controllers\UsuarioController::cl
 
 Route::get('/venda', [\App\Http\Controllers\VendaController::class, 'index']);
 Route::get('/venda/{id}/deletar', [\App\Http\Controllers\VendaController::class, 'destroy']);
+Route::get('/input_venda', [\App\Http\Controllers\VendaController::class, 'create']);
+Route::get('/store_venda', [\App\Http\Controllers\VendaController::class, 'store']);
+
 
 // endregion
 

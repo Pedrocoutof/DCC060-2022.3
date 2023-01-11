@@ -97,11 +97,15 @@
                 <p>|</p>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/input_cliente">InputCliente</a>
+                    <a class="nav-link active" aria-current="page" href="/input_cliente">Create Cliente</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/input_funcionario">InputFuncionario</a>
+                    <a class="nav-link active" aria-current="page" href="/input_funcionario">Create Funcionario</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/input_compra">Create Compra</a>
                 </li>
 
 

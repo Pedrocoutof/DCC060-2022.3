@@ -40,7 +40,14 @@ class VendaController extends Controller
      */
     public function create()
     {
-        //
+        $nome_clientes = DB::select("SELECT id_pessoa, nome
+                                           FROM clientes INNER JOIN pessoas
+                                           ON (clientes.id_pessoa = pessoas.id)");
+
+        $produtos = DB::select("SELECT id, nome
+                                FROM produtos");
+
+        return view('venda.create', ['clientes' => $nome_clientes, "produtos" => $produtos]);
     }
 
     /**
@@ -49,9 +56,30 @@ class VendaController extends Controller
      * @param  \App\Http\Requests\StoreVendaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVendaRequest $request)
+    public function store(Request $request)
     {
-        //
+
+        $quantidade = $request->quantidade;
+        $id_cliente = $request->cliente[0];
+        $id_venda = $request->id_venda;
+        $produto = $request->produto[0];
+        $valor = $request->valor;
+        $forma_pagamento = $request->forma_pagamento;
+        $data_inicio_pagamento = $request->data_inicio_pagamento;
+        $data_final_pagamento = $request->data_final_pagamento;
+
+        $quantidade_em_estoque = DB::select("SELECT quantidade_estoque
+                                            FROM produtos
+                                            WHERE id = ".$produto);
+
+        DB::select("UPDATE produtos
+                    SET quantidade_estoque = quantidade_estoque - ".$quantidade."
+                    WHERE id = ". $produto);
+
+        DB::select("INSERT INTO `vendas`(`id`, `id_cliente`,  `valor`, `forma_pagamento`, `data_inicio_pagamento`, `data_final_pagamento`) VALUES
+                                            ('.$id_venda.','.$id_cliente.','.$valor.','.$forma_pagamento.','.$data_inicio_pagamento.', NULL)");
+
+        return redirect('/');
     }
 
     /**
